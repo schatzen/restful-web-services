@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -35,9 +36,10 @@ public class UserController {
     // input - details of user
     // output = created & return the created URI
     @PostMapping("/users")
-    public ResponseEntity<Object> createdUser(@RequestBody User user) {
+    public ResponseEntity<Object> createdUser(@Valid @RequestBody User user) {
         User savedUser = service.save(user);
 
+        // header에 추가
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
