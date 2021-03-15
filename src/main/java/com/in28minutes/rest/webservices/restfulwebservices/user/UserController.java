@@ -46,4 +46,13 @@ public class UserController {
         // 반환 값
         return ResponseEntity.created(location).build();
     }
+
+    // retrieveUser(int id)
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id) {
+        User user = service.deleteById(id);
+
+        if(user == null)
+            throw new UserNotFoundException("id-" + id);
+    }
 }
