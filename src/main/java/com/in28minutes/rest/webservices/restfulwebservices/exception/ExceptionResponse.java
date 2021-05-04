@@ -3,8 +3,8 @@ package com.in28minutes.rest.webservices.restfulwebservices.exception;
 import java.util.Date;
 
 public class ExceptionResponse {
-    // timestamp, message, details
 
+    // timestamp, message, details
     private Date timestamp;
     private String message;
     private String details;
